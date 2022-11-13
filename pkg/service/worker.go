@@ -19,16 +19,16 @@ type Worker struct {
 	Signer *ecdsa.PrivateKey
 }
 
-func (w *Worker) FetchBlockNumber() *BlockNumberChannel {
+func (w *Worker) GetBlockNumber() *BlockNumberChannel {
 	channel := make(chan uint64)
-	refreshRate := time.NewTicker(w.Config.OtherConfig.Interval * time.Second)
 	stopSignal := make(chan struct{})
 	blockNumberChannel := &BlockNumberChannel{
 		DataTranferChannel: channel,
-
-		stopSignal: stopSignal,
+		stopSignal:         stopSignal,
 	}
 	go func() {
+		refreshRate := time.NewTicker(w.Config.OtherConfig.Interval * time.Second)
+		defer refreshRate.Stop()
 		for {
 			select {
 			case <-refreshRate.C:
@@ -39,7 +39,6 @@ func (w *Worker) FetchBlockNumber() *BlockNumberChannel {
 				}
 				channel <- blockNumber
 			case <-stopSignal:
-				refreshRate.Stop()
 				return
 			}
 		}

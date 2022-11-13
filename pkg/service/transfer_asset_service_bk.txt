@@ -100,6 +100,7 @@ func (s *TransferAssetService) ListenToRequests(fromChain *TransferAssetWorker, 
 	blockNumberChan := fromChain.FetchBlockNumber()
 	log.Printf("start ListenToRequests from %v to %v\n", fromChain.ChainName, toChain.ChainName)
 	go func() {
+		defer blockNumberChan.Stop()
 		for {
 			select {
 			case toBlock := <-blockNumberChan.DataTranferChannel:
@@ -131,7 +132,6 @@ func (s *TransferAssetService) ListenToRequests(fromChain *TransferAssetWorker, 
 
 				fromChain.LastestReadedBlock = toBlock
 			case <-s.stopSignal:
-				blockNumberChan.Stop()
 				return
 			}
 		}

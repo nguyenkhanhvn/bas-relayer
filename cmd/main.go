@@ -31,42 +31,23 @@ func main() {
 
 	// set maximum number of CPUs that can be executing simultaneously, default is number of physic CPUs
 	runtime.GOMAXPROCS(0)
+	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 	bscConfig := relayer.GetBSCTestnetConfig()
-	// bscConfig := getBSCMainnetConfig()
+	// bscConfig := relayer.GetBSCMainnetConfig()
 	basConfig := relayer.GetLocalNetworkConfig()
 
+	service, err := service.NewService(bscConfig, basConfig)
+	if err != nil {
+		panic(err)
+	}
+
 	mainWaitGroup.Add(1)
-	updateValidatorService, err := service.NewUpdateValidatorService(bscConfig, basConfig)
+	err = service.Start()
 	if err != nil {
 		panic(err)
 	}
 
-	transferAssetService, err := service.NewTransferAssetService(bscConfig, basConfig)
-	if err != nil {
-		panic(err)
-	}
-
-	go func() {
-		if err = updateValidatorService.Start(); err != nil {
-			panic(err)
-		}
-	}()
-
-	go func() {
-		for {
-			updating := <-updateValidatorService.UpdatingChannel
-			if updating {
-				log.Println("stop transfer asset to update validators")
-				transferAssetService.Stop()
-			} else {
-				log.Println("start transfer asset")
-				if err = transferAssetService.Start(); err != nil {
-					panic(err)
-				}
-			}
-		}
-	}()
-
-	// wait for exit signal
+	// wait for exit
 	mainWaitGroup.Wait()
+	service.Stop()
 }
