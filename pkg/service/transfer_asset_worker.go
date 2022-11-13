@@ -67,7 +67,7 @@ func (w *TransferAssetWorker) ListenToRequestsFromChain(fromChain *TransferAsset
 			logs, err := fromChain.Client.FilterLogs(context.Background(), query)
 			if err != nil {
 				fromChain.LastestReadedBlock = fromBlock
-				log.Printf("ListenToRequests: failed to FilterLogs from %v: %v\n", fromChain.ChainName, err)
+				log.Printf("failed to FilterLogs from %v: %v\n", fromChain.ChainName, err)
 				continue
 			}
 
@@ -88,7 +88,7 @@ func (w *TransferAssetWorker) TransferAsset(fromChain *TransferAssetWorker, txHa
 	var lastestNumber uint64
 	blockNumber, _, err := utils.GetBlockNumberFromTransactionHash(fromChain.Client, txHash)
 	if err != nil {
-		log.Printf("generateReceiptProof: cannot getBlockNumberFromTransactionHash, error: %v", err)
+		log.Printf("cannot getBlockNumberFromTransactionHash, error: %v", err)
 	}
 	blockNumberChan := fromChain.GetBlockNumber()
 	for {
@@ -102,14 +102,14 @@ func (w *TransferAssetWorker) TransferAsset(fromChain *TransferAssetWorker, txHa
 
 	_, proofRaw, _, _, err := utils.GenerateProofWithoutCheck(fromChain.Client, blockNumber.Int64(), int64(lastestNumber), txHash)
 	if err != nil {
-		log.Printf("TransferAsset: failed to generateProof from %v: %v\n", fromChain.ChainName, err)
+		log.Printf("failed to generateProof from %v: %v\n", fromChain.ChainName, err)
 		return
 	}
 
 	// withdraw at destination chain
 	err = w.Withdraw(proofRaw)
 	if err != nil {
-		log.Printf("TransferAsset: failed to withdraw to %v: %v\n", w.ChainName, err)
+		log.Printf("failed to withdraw to %v: %v\n", w.ChainName, err)
 		return
 	}
 	log.Println("finish withdraw: ", txHash)

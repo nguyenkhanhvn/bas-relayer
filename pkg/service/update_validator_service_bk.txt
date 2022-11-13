@@ -89,7 +89,7 @@ func (s *UpdateValidatorService) UpdateValidatorSet(fromChain *UpdateValidatorWo
 			lastestEpoch := lastestBlock / fromChain.Config.ChainConfig.EpochLength
 			lastestKnownEpochRaw, err := toChain.relayHub.GetLatestEpochNumber(nil, big.NewInt(fromChain.Config.ChainConfig.ChainId))
 			if err != nil {
-				log.Printf("UpdateValidatorSet: failed to get GetLatestEpochNumber from %v: %v\n", toChain.ChainName, err)
+				log.Printf("failed to get GetLatestEpochNumber from %v: %v\n", toChain.ChainName, err)
 				continue
 			}
 			nextUpdatedEpoch := lastestKnownEpochRaw.Uint64() + 1
@@ -113,13 +113,13 @@ func (s *UpdateValidatorService) UpdateValidatorSet(fromChain *UpdateValidatorWo
 				if toBlock <= lastestBlock {
 					_, blockProofs, err := utils.GenerateBlockProofs(fromChain.Client, int64(fromBlock), int64(toBlock))
 					if err != nil {
-						log.Printf("UpdateValidatorSet: failed to generateBlockProofs from %v: %v\n", fromChain.ChainName, err)
+						log.Printf("failed to generateBlockProofs from %v: %v\n", fromChain.ChainName, err)
 						break
 					}
 
 					opts, err := utils.GetTransactOpts(toChain.Client, toChain.Signer, big.NewInt(toChain.Config.ChainConfig.ChainId))
 					if err != nil {
-						log.Printf("UpdateValidatorSet: failed to getTransactOpts for %v: %v\n", toChain.ChainName, err)
+						log.Printf("failed to getTransactOpts for %v: %v\n", toChain.ChainName, err)
 						break
 					}
 
@@ -127,13 +127,13 @@ func (s *UpdateValidatorService) UpdateValidatorSet(fromChain *UpdateValidatorWo
 					log.Printf("updateing validator set from %v to %v, epoch: %v\n", fromChain.ChainName, toChain.ChainName, nextUpdatedEpoch)
 					tx, err := toChain.relayHub.UpdateValidatorSetUsingEpochBlocks(opts, big.NewInt(fromChain.Config.ChainConfig.ChainId), blockProofs.HeaderRlps)
 					if err != nil {
-						log.Printf("UpdateValidatorSet: failed to UpdateValidatorSetUsingEpochBlocks to %v: %v\n", toChain.ChainName, err)
+						log.Printf("failed to UpdateValidatorSetUsingEpochBlocks to %v: %v\n", toChain.ChainName, err)
 						break
 					}
 
 					err = utils.WaitTxToBeMined(context.TODO(), toChain.Client, tx.Hash())
 					if err != nil {
-						log.Printf("UpdateValidatorSet: failed to get transaction receipt in %v: %v\n", toChain.ChainName, err)
+						log.Printf("failed to get transaction receipt in %v: %v\n", toChain.ChainName, err)
 						break
 					}
 				}

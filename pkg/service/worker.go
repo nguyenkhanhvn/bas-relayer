@@ -34,7 +34,7 @@ func (w *Worker) GetBlockNumber() *BlockNumberChannel {
 			case <-refreshRate.C:
 				blockNumber, err := w.Client.BlockNumber(context.TODO())
 				if err != nil {
-					log.Printf("FetchBlockNumber: failed to get BlockNumber from %v: %v\n", w.ChainName, err)
+					log.Printf("failed to get BlockNumber from %v: %v\n", w.ChainName, err)
 					continue
 				}
 				channel <- blockNumber
