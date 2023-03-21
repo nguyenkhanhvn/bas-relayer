@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+
+  relayer:
+    image: nguyenkhanhvn/bas-relayer:${DOCKER_TAG:-0.0.2}
+    command: relayer --config=/config.json
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./config.json:/config.json
+    logging:
+      options:
+        max-size: 50m
+    restart: always

@@ -1,1 +1,11 @@
+**/.vscode
+**/.DS_Store
+**/.env
+**/cache
+**/node_modules
+**/yarn-error.log
+**/yarn.lock
 **/go.sum
+data
+deployment/proofwriter
+deployment/relayer

@@ -1,0 +1,105 @@
+{
+    "relayer": {
+        "flow": {    
+            "basToBsc": true,
+            "bscToBas": false
+        },
+        "relayHubType": {
+            "bsc": "beta",
+            "bas": "alpha"
+        }
+    },
+    "testnet": {
+        "chainConfig": {
+            "chainName": "BSC Testnet",
+            "rpcUrl": ["https://data-seed-prebsc-1-s1.binance.org:8545", "https://data-seed-prebsc-2-s1.binance.org:8545","https://data-seed-prebsc-1-s2.binance.org:8545", "https://data-seed-prebsc-2-s2.binance.org:8545", "https://data-seed-prebsc-1-s3.binance.org:8545", "https://data-seed-prebsc-2-s3.binance.org:8545", "https://bsc-testnet.public.blastapi.io", "https://bsctestapi.terminet.io/rpc"],
+            "chainId": 97,
+            "blockConfirmations": 7,
+            "epochLength": 200,
+            "relayHubAddress": "0x769D5afDF39E37013E5e0be2F75Caa10FddDd94b",
+            "crossChainBridgeAddress": "0x78aBb6787C717a0D6C80Bdb05DD272514936E181",
+            "filterLogsMaximumBlockRange": 5000,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": "4cb95630b02e4a1b3fa28da9138cda1c62677d121a324d025f00cec6a5610828"
+        },
+        "otherConfig": {
+            "interval": 0,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 0
+        }
+    },
+    "bas": {
+        "chainConfig": {
+            "chainName": "BAS",
+            "rpcUrl": ["https://rpc.versehub.io/"],
+            "chainId": 14010,
+            "blockConfirmations": 3,
+            "epochLength": 1200,
+            "relayHubAddress": "0xa6E13507A3F6dF7782aa736e0bB2f19Eeb29160E",
+            "crossChainBridgeAddress": "0xB8F3Cf04df035ef81aF0602d2FaFD61202ACd3FB",
+            "filterLogsMaximumBlockRange": 0,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": "aac25716ec67148ffa87d3ae069fdb51ab880ceccf524446ec1ef3ebcc9209f9"
+        },
+        "otherConfig": {
+            "interval": 0,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 1300000
+        }
+    },
+    "mainnet": {
+        "chainConfig": {
+            "chainName": "BSC Mainnet",
+            "rpcUrl": ["https://bsc-dataseed1.defibit.io"],
+            "chainId": 56,
+            "blockConfirmations": 150,
+            "epochLength": 200,
+            "relayHubAddress": "",
+            "crossChainBridgeAddress": "",
+            "filterLogsMaximumBlockRange": 5000,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": ""
+        },
+        "otherConfig": {
+            "interval": 0,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 0
+        }
+    },
+    "localhost": {
+        "chainConfig": {
+            "chainName": "Local network",
+            "rpcUrl": ["http://127.0.0.1:8545/"],
+            "websocketRpc": ["ws://127.0.0.1:8545"],
+            "chainId": 31337,
+            "blockConfirmations": 1,
+            "epochLength": 10,
+            "relayHubAddress": "0x33366db4C1C593B3d83c0B3532548b31112748DD",
+            "crossChainBridgeAddress": "0x8e92275FA0D61C6B039688cDe252dEbfF0ab11eE",
+            "filterLogsMaximumBlockRange": 0,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": ""
+        },
+        "otherConfig": {
+            "interval": 0,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 0
+        }
+    }
+}

@@ -1,0 +1,105 @@
+{
+    "relayer": {
+        "flow": {
+            "basToBsc": true,
+            "bscToBas": true
+        },
+        "relayHubType": {
+            "bsc": "beta",
+            "bas": "alpha"
+        }
+    },
+    "testnet": {
+        "chainConfig": {
+            "chainName": "BSC Testnet",
+            "rpcUrl": ["https://data-seed-prebsc-1-s1.binance.org:8545","https://data-seed-prebsc-1-s2.binance.org:8545"],
+            "chainId": 97,
+            "blockConfirmations": 7,
+            "epochLength": 200,
+            "relayHubAddress": "0x793b33d9208949c1Bf6D6b8e52e9275e2469C7d4",
+            "crossChainBridgeAddress": "0x0e515C83DEAf301F9883cfFd4143392652DB1BA0",
+            "filterLogsMaximumBlockRange": 5000,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": "4cb95630b02e4a1b3fa28da9138cda1c62677d121a324d025f00cec6a5610828"
+        },
+        "otherConfig": {
+            "interval": 3,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 23800000
+        }
+    },
+    "bas": {
+        "chainConfig": {
+            "chainName": "BAS",
+            "rpcUrl": ["https://rpc.versehub.io/"],
+            "chainId": 14010,
+            "blockConfirmations": 3,
+            "epochLength": 1200,
+            "relayHubAddress": "0x735fa7737479dd59d3952E93CfD60291dE280ECe",
+            "crossChainBridgeAddress": "0xEb2C19dB557b7Cc351C7bA11A2A5d8cd45eDc3eA",
+            "filterLogsMaximumBlockRange": 0,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": "87653fe5ba20d12d8cce34ff0aea88426fc82c39e45886760a58b7a1c1baa1a1"
+        },
+        "otherConfig": {
+            "interval": 3,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 2400
+        }
+    },
+    "mainnet": {
+        "chainConfig": {
+            "chainName": "BSC Mainnet",
+            "rpcUrl": ["https://bsc-dataseed1.defibit.io"],
+            "chainId": 56,
+            "blockConfirmations": 150,
+            "epochLength": 200,
+            "relayHubAddress": "",
+            "crossChainBridgeAddress": "",
+            "filterLogsMaximumBlockRange": 5000,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": ""
+        },
+        "otherConfig": {
+            "interval": 3,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 0
+        }
+    },
+    "localhost": {
+        "chainConfig": {
+            "chainName": "Local network",
+            "rpcUrl": ["http://127.0.0.1:8545/"],
+            "websocketRpc": ["ws://127.0.0.1:8545"],
+            "chainId": 31337,
+            "blockConfirmations": 1,
+            "epochLength": 10,
+            "relayHubAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+            "crossChainBridgeAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+            "filterLogsMaximumBlockRange": 0,
+            "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
+        },
+        "signerConfig": {
+            "privateKey": ""
+        },
+        "otherConfig": {
+            "interval": 3,
+            "transactionHash": "",
+            "dataPath": "./data/",
+            "useCheckpoint": true,
+            "blockNumber": 0
+        }
+    }
+}
