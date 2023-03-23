@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/hex"
 	"fmt"
+	"log"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
@@ -37,6 +38,9 @@ CHECK_LOOP:
 
 func ParseValidatorSet(header *types.Header) ([]common.Address, error) {
 	extraData := header.Extra
+	if len(extraData) < 97 {
+		log.Panic("invalid extraData length")
+	}
 	extraSuffix := len(extraData) - 65
 	validatorsBytes := extraData[32:extraSuffix]
 

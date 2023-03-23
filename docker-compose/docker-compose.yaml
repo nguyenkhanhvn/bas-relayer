@@ -2,7 +2,7 @@ version: "3.5"
 services:
 
   relayer:
-    image: nguyenkhanhvn/bas-relayer:${DOCKER_TAG:-0.0.2}
+    image: nguyenkhanhvn/bas-relayer:${DOCKER_TAG:-0.0.7}
     command: relayer --config=/config.json
     extra_hosts:
       - "host.docker.internal:host-gateway"

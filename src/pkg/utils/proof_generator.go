@@ -149,7 +149,7 @@ func GenerateBlockProofs(client *ethclient.Client, fromBlock, toBlock int64) (*B
 		return nil, nil, NewError(ClientError, fmt.Errorf("generateBlockProofs: client is nil"))
 	}
 
-	if toBlock <= fromBlock || fromBlock < 0 {
+	if toBlock < fromBlock || fromBlock < 0 {
 		return nil, nil, NewError(OtherError, fmt.Errorf("generateBlockProofs: toBlock must be greater than fromBlock"))
 	}
 

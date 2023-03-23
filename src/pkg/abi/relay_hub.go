@@ -26,6 +26,7 @@ var (
 	_ = common.Big1
 	_ = types.BloomLookup
 	_ = event.NewSubscription
+	_ = abi.ConvertType
 )
 
 // TypesBlockHeader is an auto generated low-level Go binding around an user-defined struct.
@@ -41,7 +42,7 @@ type TypesBlockHeader struct {
 
 // RelayHubMetaData contains all meta data concerning the RelayHub contract.
 var RelayHubMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"contractIProofVerificationFunction\",\"name\":\"defaultVerificationFunction\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"}],\"name\":\"BridgeRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"BridgeUnregistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"ChainReseted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"validatorSet\",\"type\":\"address[]\"}],\"name\":\"ValidatorSetUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"checkValidators\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"blockStart\",\"type\":\"uint256\"}],\"name\":\"checkEpochBlock\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"blockProofs\",\"type\":\"bytes[]\"},{\"internalType\":\"bytes\",\"name\":\"rawReceipt\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proofSiblings\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proofPath\",\"type\":\"bytes\"}],\"name\":\"checkReceiptProof\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"checkValidators\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"blockStart\",\"type\":\"uint256\"}],\"name\":\"checkValidatorsAndQuorumReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"}],\"name\":\"enableCrossChainBridge\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getBridgeAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getLatestEpochNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getLatestValidatorSet\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"contractIProofVerificationFunction\",\"name\":\"verificationFunction\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"rawRegisterBlock\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"epochLength\",\"type\":\"uint32\"}],\"name\":\"registerBridge\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"parentHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"blockNumber\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"coinbase\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"receiptsRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"txsRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"stateRoot\",\"type\":\"bytes32\"}],\"internalType\":\"structTypes.BlockHeader\",\"name\":\"blockHeader\",\"type\":\"tuple\"},{\"internalType\":\"address[]\",\"name\":\"initialValidatorSet\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"resetChain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator_\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"status_\",\"type\":\"bool\"}],\"name\":\"setOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"unregisterBridge\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"blockProofs\",\"type\":\"bytes[]\"}],\"name\":\"updateValidatorSetUsingEpochBlocks\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"contractIProofVerificationFunction\",\"name\":\"defaultVerificationFunction\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"}],\"name\":\"BridgeRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"BridgeUnregistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"ChainReseted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"validatorSet\",\"type\":\"address[]\"}],\"name\":\"ValidatorSetUpdated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"check0\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"check1\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"check2\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"epochNumber\",\"type\":\"uint256\"}],\"name\":\"check3\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"epochNumber\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"bucket\",\"type\":\"uint256\"}],\"name\":\"check4\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"epochNumber\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"check5\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"v\",\"type\":\"address\"}],\"name\":\"check6\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"checkValidators\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"blockStart\",\"type\":\"uint256\"}],\"name\":\"checkEpochBlock\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"blockProofs\",\"type\":\"bytes[]\"},{\"internalType\":\"bytes\",\"name\":\"rawReceipt\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proofSiblings\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"proofPath\",\"type\":\"bytes\"}],\"name\":\"checkReceiptProof\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"checkValidators\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"blockStart\",\"type\":\"uint256\"}],\"name\":\"checkValidatorsAndQuorumReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"}],\"name\":\"enableCrossChainBridge\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getBridgeAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getLatestEpochNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"getLatestValidatorSet\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"epochNumber\",\"type\":\"uint256\"}],\"name\":\"getValidatorSetForEpoch\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"contractIProofVerificationFunction\",\"name\":\"verificationFunction\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"rawRegisterBlock\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"bridgeAddress\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"epochLength\",\"type\":\"uint32\"}],\"name\":\"registerBridge\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"blockHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"parentHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"blockNumber\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"coinbase\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"receiptsRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"txsRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"stateRoot\",\"type\":\"bytes32\"}],\"internalType\":\"structTypes.BlockHeader\",\"name\":\"blockHeader\",\"type\":\"tuple\"},{\"internalType\":\"address[]\",\"name\":\"initialValidatorSet\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"resetChain\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator_\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"status_\",\"type\":\"bool\"}],\"name\":\"setOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"}],\"name\":\"unregisterBridge\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"blockProofs\",\"type\":\"bytes[]\"}],\"name\":\"updateValidatorSetUsingEpochBlocks\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // RelayHubABI is the input ABI used to generate the binding from.
@@ -145,11 +146,11 @@ func NewRelayHubFilterer(address common.Address, filterer bind.ContractFilterer)
 
 // bindRelayHub binds a generic wrapper to an already deployed contract.
 func bindRelayHub(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(RelayHubABI))
+	parsed, err := RelayHubMetaData.GetAbi()
 	if err != nil {
 		return nil, err
 	}
-	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
+	return bind.NewBoundContract(address, *parsed, caller, transactor, filterer), nil
 }
 
 // Call invokes the (constant) contract method with params as input values and
@@ -188,6 +189,224 @@ func (_RelayHub *RelayHubTransactorRaw) Transfer(opts *bind.TransactOpts) (*type
 // Transact invokes the (paid) contract method with params as input values.
 func (_RelayHub *RelayHubTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
 	return _RelayHub.Contract.contract.Transact(opts, method, params...)
+}
+
+// Check0 is a free data retrieval call binding the contract method 0x4c607cea.
+//
+// Solidity: function check0(uint256 chainId) view returns(uint256)
+func (_RelayHub *RelayHubCaller) Check0(opts *bind.CallOpts, chainId *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check0", chainId)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Check0 is a free data retrieval call binding the contract method 0x4c607cea.
+//
+// Solidity: function check0(uint256 chainId) view returns(uint256)
+func (_RelayHub *RelayHubSession) Check0(chainId *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check0(&_RelayHub.CallOpts, chainId)
+}
+
+// Check0 is a free data retrieval call binding the contract method 0x4c607cea.
+//
+// Solidity: function check0(uint256 chainId) view returns(uint256)
+func (_RelayHub *RelayHubCallerSession) Check0(chainId *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check0(&_RelayHub.CallOpts, chainId)
+}
+
+// Check1 is a free data retrieval call binding the contract method 0x46061579.
+//
+// Solidity: function check1(uint256 chainId) view returns(address[])
+func (_RelayHub *RelayHubCaller) Check1(opts *bind.CallOpts, chainId *big.Int) ([]common.Address, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check1", chainId)
+
+	if err != nil {
+		return *new([]common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+
+	return out0, err
+
+}
+
+// Check1 is a free data retrieval call binding the contract method 0x46061579.
+//
+// Solidity: function check1(uint256 chainId) view returns(address[])
+func (_RelayHub *RelayHubSession) Check1(chainId *big.Int) ([]common.Address, error) {
+	return _RelayHub.Contract.Check1(&_RelayHub.CallOpts, chainId)
+}
+
+// Check1 is a free data retrieval call binding the contract method 0x46061579.
+//
+// Solidity: function check1(uint256 chainId) view returns(address[])
+func (_RelayHub *RelayHubCallerSession) Check1(chainId *big.Int) ([]common.Address, error) {
+	return _RelayHub.Contract.Check1(&_RelayHub.CallOpts, chainId)
+}
+
+// Check2 is a free data retrieval call binding the contract method 0x87ecaf0d.
+//
+// Solidity: function check2(uint256 chainId, uint256 index) view returns(address)
+func (_RelayHub *RelayHubCaller) Check2(opts *bind.CallOpts, chainId *big.Int, index *big.Int) (common.Address, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check2", chainId, index)
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// Check2 is a free data retrieval call binding the contract method 0x87ecaf0d.
+//
+// Solidity: function check2(uint256 chainId, uint256 index) view returns(address)
+func (_RelayHub *RelayHubSession) Check2(chainId *big.Int, index *big.Int) (common.Address, error) {
+	return _RelayHub.Contract.Check2(&_RelayHub.CallOpts, chainId, index)
+}
+
+// Check2 is a free data retrieval call binding the contract method 0x87ecaf0d.
+//
+// Solidity: function check2(uint256 chainId, uint256 index) view returns(address)
+func (_RelayHub *RelayHubCallerSession) Check2(chainId *big.Int, index *big.Int) (common.Address, error) {
+	return _RelayHub.Contract.Check2(&_RelayHub.CallOpts, chainId, index)
+}
+
+// Check3 is a free data retrieval call binding the contract method 0x00f21bcd.
+//
+// Solidity: function check3(uint256 chainId, uint256 epochNumber) view returns(uint256)
+func (_RelayHub *RelayHubCaller) Check3(opts *bind.CallOpts, chainId *big.Int, epochNumber *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check3", chainId, epochNumber)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Check3 is a free data retrieval call binding the contract method 0x00f21bcd.
+//
+// Solidity: function check3(uint256 chainId, uint256 epochNumber) view returns(uint256)
+func (_RelayHub *RelayHubSession) Check3(chainId *big.Int, epochNumber *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check3(&_RelayHub.CallOpts, chainId, epochNumber)
+}
+
+// Check3 is a free data retrieval call binding the contract method 0x00f21bcd.
+//
+// Solidity: function check3(uint256 chainId, uint256 epochNumber) view returns(uint256)
+func (_RelayHub *RelayHubCallerSession) Check3(chainId *big.Int, epochNumber *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check3(&_RelayHub.CallOpts, chainId, epochNumber)
+}
+
+// Check4 is a free data retrieval call binding the contract method 0x837ee9eb.
+//
+// Solidity: function check4(uint256 chainId, uint256 epochNumber, uint256 bucket) view returns(uint256)
+func (_RelayHub *RelayHubCaller) Check4(opts *bind.CallOpts, chainId *big.Int, epochNumber *big.Int, bucket *big.Int) (*big.Int, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check4", chainId, epochNumber, bucket)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Check4 is a free data retrieval call binding the contract method 0x837ee9eb.
+//
+// Solidity: function check4(uint256 chainId, uint256 epochNumber, uint256 bucket) view returns(uint256)
+func (_RelayHub *RelayHubSession) Check4(chainId *big.Int, epochNumber *big.Int, bucket *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check4(&_RelayHub.CallOpts, chainId, epochNumber, bucket)
+}
+
+// Check4 is a free data retrieval call binding the contract method 0x837ee9eb.
+//
+// Solidity: function check4(uint256 chainId, uint256 epochNumber, uint256 bucket) view returns(uint256)
+func (_RelayHub *RelayHubCallerSession) Check4(chainId *big.Int, epochNumber *big.Int, bucket *big.Int) (*big.Int, error) {
+	return _RelayHub.Contract.Check4(&_RelayHub.CallOpts, chainId, epochNumber, bucket)
+}
+
+// Check5 is a free data retrieval call binding the contract method 0x88e0f814.
+//
+// Solidity: function check5(uint256 chainId, uint256 epochNumber, uint256 index) view returns(bool)
+func (_RelayHub *RelayHubCaller) Check5(opts *bind.CallOpts, chainId *big.Int, epochNumber *big.Int, index *big.Int) (bool, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check5", chainId, epochNumber, index)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// Check5 is a free data retrieval call binding the contract method 0x88e0f814.
+//
+// Solidity: function check5(uint256 chainId, uint256 epochNumber, uint256 index) view returns(bool)
+func (_RelayHub *RelayHubSession) Check5(chainId *big.Int, epochNumber *big.Int, index *big.Int) (bool, error) {
+	return _RelayHub.Contract.Check5(&_RelayHub.CallOpts, chainId, epochNumber, index)
+}
+
+// Check5 is a free data retrieval call binding the contract method 0x88e0f814.
+//
+// Solidity: function check5(uint256 chainId, uint256 epochNumber, uint256 index) view returns(bool)
+func (_RelayHub *RelayHubCallerSession) Check5(chainId *big.Int, epochNumber *big.Int, index *big.Int) (bool, error) {
+	return _RelayHub.Contract.Check5(&_RelayHub.CallOpts, chainId, epochNumber, index)
+}
+
+// Check6 is a free data retrieval call binding the contract method 0x2203c097.
+//
+// Solidity: function check6(uint256 chainId, address v) view returns(bool, uint256)
+func (_RelayHub *RelayHubCaller) Check6(opts *bind.CallOpts, chainId *big.Int, v common.Address) (bool, *big.Int, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "check6", chainId, v)
+
+	if err != nil {
+		return *new(bool), *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+	out1 := *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+
+	return out0, out1, err
+
+}
+
+// Check6 is a free data retrieval call binding the contract method 0x2203c097.
+//
+// Solidity: function check6(uint256 chainId, address v) view returns(bool, uint256)
+func (_RelayHub *RelayHubSession) Check6(chainId *big.Int, v common.Address) (bool, *big.Int, error) {
+	return _RelayHub.Contract.Check6(&_RelayHub.CallOpts, chainId, v)
+}
+
+// Check6 is a free data retrieval call binding the contract method 0x2203c097.
+//
+// Solidity: function check6(uint256 chainId, address v) view returns(bool, uint256)
+func (_RelayHub *RelayHubCallerSession) Check6(chainId *big.Int, v common.Address) (bool, *big.Int, error) {
+	return _RelayHub.Contract.Check6(&_RelayHub.CallOpts, chainId, v)
 }
 
 // CheckEpochBlock is a free data retrieval call binding the contract method 0x516fd26f.
@@ -374,6 +593,37 @@ func (_RelayHub *RelayHubSession) GetLatestValidatorSet(chainId *big.Int) ([]com
 // Solidity: function getLatestValidatorSet(uint256 chainId) view returns(address[])
 func (_RelayHub *RelayHubCallerSession) GetLatestValidatorSet(chainId *big.Int) ([]common.Address, error) {
 	return _RelayHub.Contract.GetLatestValidatorSet(&_RelayHub.CallOpts, chainId)
+}
+
+// GetValidatorSetForEpoch is a free data retrieval call binding the contract method 0x209262db.
+//
+// Solidity: function getValidatorSetForEpoch(uint256 chainId, uint256 epochNumber) view returns(address[])
+func (_RelayHub *RelayHubCaller) GetValidatorSetForEpoch(opts *bind.CallOpts, chainId *big.Int, epochNumber *big.Int) ([]common.Address, error) {
+	var out []interface{}
+	err := _RelayHub.contract.Call(opts, &out, "getValidatorSetForEpoch", chainId, epochNumber)
+
+	if err != nil {
+		return *new([]common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+
+	return out0, err
+
+}
+
+// GetValidatorSetForEpoch is a free data retrieval call binding the contract method 0x209262db.
+//
+// Solidity: function getValidatorSetForEpoch(uint256 chainId, uint256 epochNumber) view returns(address[])
+func (_RelayHub *RelayHubSession) GetValidatorSetForEpoch(chainId *big.Int, epochNumber *big.Int) ([]common.Address, error) {
+	return _RelayHub.Contract.GetValidatorSetForEpoch(&_RelayHub.CallOpts, chainId, epochNumber)
+}
+
+// GetValidatorSetForEpoch is a free data retrieval call binding the contract method 0x209262db.
+//
+// Solidity: function getValidatorSetForEpoch(uint256 chainId, uint256 epochNumber) view returns(address[])
+func (_RelayHub *RelayHubCallerSession) GetValidatorSetForEpoch(chainId *big.Int, epochNumber *big.Int) ([]common.Address, error) {
+	return _RelayHub.Contract.GetValidatorSetForEpoch(&_RelayHub.CallOpts, chainId, epochNumber)
 }
 
 // EnableCrossChainBridge is a paid mutator transaction binding the contract method 0xd2e1a496.

@@ -2,7 +2,7 @@
     "relayer": {
         "flow": {    
             "basToBsc": true,
-            "bscToBas": false
+            "bscToBas": true
         },
         "relayHubType": {
             "bsc": "beta",
@@ -16,8 +16,8 @@
             "chainId": 97,
             "blockConfirmations": 7,
             "epochLength": 200,
-            "relayHubAddress": "0x769D5afDF39E37013E5e0be2F75Caa10FddDd94b",
-            "crossChainBridgeAddress": "0x78aBb6787C717a0D6C80Bdb05DD272514936E181",
+            "relayHubAddress": "0x8838599A33419fa5CEFb0b1A57E9c7021C178636",
+            "crossChainBridgeAddress": "0x1d7B6EA94aAB917409fE890582Cf13E3f1Ef8Cd5",
             "filterLogsMaximumBlockRange": 5000,
             "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
         },
@@ -39,8 +39,8 @@
             "chainId": 14010,
             "blockConfirmations": 3,
             "epochLength": 1200,
-            "relayHubAddress": "0xa6E13507A3F6dF7782aa736e0bB2f19Eeb29160E",
-            "crossChainBridgeAddress": "0xB8F3Cf04df035ef81aF0602d2FaFD61202ACd3FB",
+            "relayHubAddress": "0x7Dd062838120dA11906f4BbCbfc0d170Cd3818a2",
+            "crossChainBridgeAddress": "0x02DB433FA5B64F9e7B59A4ef1Ce4BE4747f8366f",
             "filterLogsMaximumBlockRange": 0,
             "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
         },
@@ -86,13 +86,13 @@
             "chainId": 31337,
             "blockConfirmations": 1,
             "epochLength": 10,
-            "relayHubAddress": "0x33366db4C1C593B3d83c0B3532548b31112748DD",
-            "crossChainBridgeAddress": "0x8e92275FA0D61C6B039688cDe252dEbfF0ab11eE",
+            "relayHubAddress": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+            "crossChainBridgeAddress": "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
             "filterLogsMaximumBlockRange": 0,
             "eventSignature": "DepositToken(uint256,uint256,address,address,address,address,uint256,(string,string,uint256,address))"
         },
         "signerConfig": {
-            "privateKey": ""
+            "privateKey": "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
         },
         "otherConfig": {
             "interval": 0,

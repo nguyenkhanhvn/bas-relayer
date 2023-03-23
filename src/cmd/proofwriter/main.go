@@ -7,7 +7,6 @@ import (
 	"log"
 	"math/big"
 	"os"
-	"sync"
 
 	"relayer"
 	"relayer/pkg/flags"
@@ -21,24 +20,22 @@ import (
 )
 
 var (
-	mainWaitGroup = sync.WaitGroup{}
-	app           = cli.NewApp()
+	app = cli.NewApp()
 )
-
-func exit() {
-	mainWaitGroup.Done()
-}
 
 func init() {
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
 	app.Flags = []cli.Flag{
+		flags.ConfigFlag,
 		flags.Network,
 	}
 	app.Action = action
 }
 
 func action(c *cli.Context) error {
+	relayer.InitConfig(c.String(flags.ConfigFlag.Name))
+
 	if c.NArg() == 0 {
 		return fmt.Errorf("missing argument")
 	} else if c.NArg() == 1 {

@@ -38,7 +38,10 @@ func NewTransferAssetWorker(chainName string, config *relayer.Config) *TransferA
 		stopSignal:         make(chan struct{}),
 		stopping:           false,
 	}
-	worker.ConnectToRpc()
+	err := worker.ConnectToRpc()
+	if err != nil {
+		log.Panic(err)
+	}
 	return worker
 }
 
@@ -110,7 +113,10 @@ MAIN_LOOP_ASSET_TRANSFER:
 			case <-blockNumberChan.ErrorChannel:
 				blockNumberChan.Stop()
 				blockNumberChan = nil
-				w.ConnectToRpc()
+				err := w.ConnectToRpc()
+				if err != nil {
+					log.Println(err.Error())
+				}
 
 			case toBlock := <-blockNumberChan.DataTranferChannel:
 				fromBlock := w.LastestReadedBlock[fromChain] + 1
@@ -136,7 +142,10 @@ MAIN_LOOP_ASSET_TRANSFER:
 
 					blockNumberChan.Stop()
 					blockNumberChan = nil
-					w.ConnectToRpc()
+					err := w.ConnectToRpc()
+					if err != nil {
+						log.Println(err.Error())
+					}
 					continue
 				}
 

@@ -83,6 +83,11 @@ func InitConfig(configPath string) {
 		return
 	}
 
+	AllConfig.Testnet.ChainConfig.SetBlockConfirmations(AllConfig.Testnet.ChainConfig.DefaultBlockConfirmations)
+	AllConfig.Mainnet.ChainConfig.SetBlockConfirmations(AllConfig.Mainnet.ChainConfig.DefaultBlockConfirmations)
+	AllConfig.BAS.ChainConfig.SetBlockConfirmations(AllConfig.BAS.ChainConfig.DefaultBlockConfirmations)
+	AllConfig.Localhost.ChainConfig.SetBlockConfirmations(AllConfig.Localhost.ChainConfig.DefaultBlockConfirmations)
+
 	path := AllConfig.Testnet.OtherConfig.DataPath
 	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
 		err := os.Mkdir(path, os.ModePerm)
@@ -152,6 +157,7 @@ type ChainConfig struct {
 	RpcUrl                      []string `json:"rpcUrl"`
 	WebsocketRpc                []string `json:"websocketRpc"`
 	ChainId                     int64    `json:"chainId"`
+	DefaultBlockConfirmations   int64    `json:"blockConfirmations"`
 	blockConfirmations          int64
 	blockConfirmationLock       sync.RWMutex
 	EpochLength                 int64  `json:"epochLength"`

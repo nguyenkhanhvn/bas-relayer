@@ -1,5 +1,5 @@
 ifndef DOCKER_VERSION
-export DOCKER_VERSION=0.0.6
+export DOCKER_VERSION=0.0.7
 endif
 
 ifndef DOCKER_NAME

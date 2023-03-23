@@ -20,7 +20,7 @@ func WriteBloockProofs(client *ethclient.Client, blockNumber int64, config *rela
 
 	blockProofs, _, errData := utils.GenerateBlockProofs(client, blockNumber, blockNumber+config.ChainConfig.BlockConfirmations())
 	if errData != nil {
-		panic(errData)
+		panic(errData.ErrorString())
 	}
 	blockProofsData, _ := json.MarshalIndent(blockProofs, "", "	")
 	err := os.WriteFile(config.OtherConfig.DataPath+"blockProofs.json", blockProofsData, 0644)
@@ -38,7 +38,7 @@ func WriteReceiptProofs(client *ethclient.Client, config *relayer.Config) {
 
 	receiptProof, _, block, receipt, _, errData := utils.GenerateReceiptProof(client, common.HexToHash(config.OtherConfig.TransactionHash))
 	if errData != nil {
-		panic(errData)
+		panic(errData.ErrorString())
 	}
 	receiptProofData, _ := json.MarshalIndent(receiptProof, "", "	")
 	err := os.WriteFile(config.OtherConfig.DataPath+"receiptProof.json", receiptProofData, 0644)
@@ -69,7 +69,7 @@ func WriteProof(client *ethclient.Client, config *relayer.Config) {
 
 	proofJson, _, block, receipt, errData := utils.GenerateProof(client, config.ChainConfig.BlockConfirmations(), common.HexToHash(config.OtherConfig.TransactionHash))
 	if errData != nil {
-		panic(errData)
+		panic(errData.ErrorString())
 	}
 	proofJsonData, _ := json.MarshalIndent(proofJson, "", "	")
 	err := os.WriteFile(config.OtherConfig.DataPath+"proof.json", proofJsonData, 0644)
